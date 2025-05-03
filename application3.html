@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Step 4 - Payment</title>
+  <link rel="stylesheet" href="application3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="application3.js" defer></script>
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Online Driver's Permit Booking</h1>
+    
+    <div class="progress-steps">
+      <div class="step completed">
+        <div class="step-number"><i class="fas fa-check"></i></div>
+        <div class="step-label">Personal Info</div>
+      </div>
+      <div class="step completed">
+        <div class="step-number"><i class="fas fa-check"></i></div>
+        <div class="step-label">Place Info</div>
+      </div>
+      <div class="step completed">
+        <div class="step-number"><i class="fas fa-check"></i></div>
+        <div class="step-label">Summary</div>
+      </div>
+      <div class="step active">
+        <div class="step-number">4</div>
+        <div class="step-label">Payment</div>
+      </div>
+    </div>
+  
+    <h2>Payment Information</h2>
+  
+      <div class="form-group">
+        <label for="payment-method">Select Payment Method</label>
+        <select id="payment-method" required>
+          <option value="" hidden disabled selected>Select method</option>
+          <option value="momo">Mobile Money</option>
+          <option value="visa">Visa Card</option>
+          <option value="bank">Bank Transfer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="text" id="amount" value="5,000 RWF" disabled>
+      </div>
+      <div class="form-group">
+        <label>Receive Payment Code via:</label>
+        <select id="method" onchange="toggleContactInput()">
+          <option value="" selected disabled hidden>Select method</option>
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+        </select>
+      </div>
+  
+      <div class="form-group" id="email-group" style="display:none;">
+        <label>Email Address:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+  
+      <div class="form-group" id="phone-group" style="display:none;">
+        <label>Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number">
+      </div>
+  
+      <div class="form-group">
+        <button onclick="sendCode()">Send Payment Code</button>
+      </div>
+  
+      <div class="form-group">
+        <label>Enter Code Sent to You:</label>
+        <input type="text" id="code" placeholder="Enter received code">
+      </div>
+      
+      <div class="button-group">
+        <a href="application2.html" >
+          <button class="btn btn-back">Back</button>
+        </a>
+         <button onclick="submitPayment()">Submit Payment</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

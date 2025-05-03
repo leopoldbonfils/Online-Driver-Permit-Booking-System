@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Driver's Permit Booking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="application2.css">
+  <script src="application2.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Online Driver's Permit Booking</h1>
+    
+    <div class="progress-steps">
+      <div class="step completed" id="step1">
+        <div class="step-number"><i class="fas fa-check"></i></div>
+        <div class="step-label">Personal Info</div>
+      </div>
+      <div class="step completed" id="step2">
+        <div class="step-number"><i class="fas fa-check"></i></div>
+        <div class="step-label">Place Info</div>
+      </div>
+      <div class="step active" id="step3">
+        <div class="step-number">3</div>
+        <div class="step-label">Summary</div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-label">Payment</div>
+      </div>
+    </div>
+    
+    <h2>Application Summary</h2>
+    
+    <div class="summary-section">
+      <h3>Personal Information</h3>
+      <div class="summary-row">
+        <div class="summary-label">National ID:</div>
+        <div class="summary-value">1199880012345678</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">First Name:</div>
+        <div class="summary-value">John</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">Middle Name:</div>
+        <div class="summary-value">David</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">Last Name:</div>
+        <div class="summary-value">Smith</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">Address:</div>
+        <div class="summary-value">123 Main Street, Kigali</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">Phone:</div>
+        <div class="summary-value">+250 78 123 4567</div>
+      </div>
+    </div>
+    
+    <div class="summary-section">
+      <h3>Place Information</h3>
+      <div class="summary-row">
+        <div class="summary-label">Language:</div>
+        <div class="summary-value">English</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">District:</div>
+        <div class="summary-value">Kicukiro</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">Date:</div>
+        <div class="summary-value">May 10, 2025</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">Time:</div>
+        <div class="summary-value">10:00 AM - 11:00 AM</div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-label">Place:</div>
+        <div class="summary-value">Kicukiro Registration Center</div>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <a href="application1.html">
+        <button class="btn btn-back">Back</button>
+      </a>
+      <a href="application3.html" onclick="markStepCompleted(3)">
+        <button class="btn">Continue to Payment</button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

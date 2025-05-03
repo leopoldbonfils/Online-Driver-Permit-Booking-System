@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Driver's License Application - Step 1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="stylesheet" href="application.css" />
+  <script src="application.js" defer></script>
+</head>
+<body>
+  <main class="main-content">
+    <div class="header">
+      <h1>Online Driver's Permit Booking</h1>
+    </div>
+
+    <div class="progress-steps">
+      <div class="step active">
+        <div class="step-number">1</div>
+        <div class="step-label">Personal Info</div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-label">Place Info</div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-label">Summary</div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-label">Payment</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Personal Information</h2>
+      <div class="form-group">
+        <label>National ID</label>
+        <input type="text" placeholder="Enter National ID">
+      </div>
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Enter First Name">
+      </div>
+      <div class="form-group">
+        <label>Middle Name</label>
+        <input type="text" placeholder="Enter Middle Name">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Enter Last Name">
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" placeholder="Enter Address">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" placeholder="Enter Phone Number">
+      </div>
+      <div class="button-group">
+        <a href="application1.html" onclick="markStepCompleted(1)">
+          <button class="btn" onclick="savePersonalInfo()">SAVE & CONTINUE</button>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function markStepCompleted(step) {
+      localStorage.setItem(`step${step}Completed`, "true");
+    }
+  </script>
+</body>
+</html>
