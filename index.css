@@ -23,6 +23,9 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
 }
 
 header {

@@ -75,7 +75,7 @@
       margin-bottom: 15px;
     }
     .form-group input, .form-group select {
-      width: 100%;
+      width: 60%;
       padding: 10px;
       margin-top: 5px;
       box-sizing: border-box;
@@ -94,7 +94,7 @@
     }
     .btn {
       padding: 10px 20px;
-      background-color: #007bff;
+      background-color: #2980b9;
       border: none;
       color: white;
       border-radius: 5px;

@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.container {
+  background-color: white;
+  padding: 30px 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.logo {
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+a {
+  color: #007c91;
+  text-decoration: none;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.required {
+  color: red;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: #007c91;
+  cursor: pointer;
+}
+
+.checkbox-container {
+  margin: 15px 0;
+}
+
+.signin-btn {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.or {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons button {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.help-links {
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 20px;
+}

@@ -9,13 +9,15 @@
 <body>
     <header>
         <div class="container">
-            <h1>Online Driver's Permit Booking System</h1>
+            <h1>Welcome to the Online Driver's Permit Booking System</h1>
+            <h1><a href="signin.html">Sign in</a></h1>
         </div>
     </header>
     
     <main class="container">
         <section class="card">
             <h2>Apply for a new driver's permit online, click the button below. </h2>
+
             <a href="application.html">
             <button class="btn">New Application</button>
             </a>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="signup.css" />
+  <script src="signup.js"></script>
+</head>
+<body>
+  <div class="container">
+    <img />
+    <h2>Sign Up</h2>
+    <p>Already have an account? <a href="signin.html">Sign in</a></p>
+
+    <form action="register.php" method="POST">
+
+      <label for="username">Username <span class="required">*</span></label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="email">Email <span class="required">*</span></label>
+      <input type="email" id="email" name="email" required/>
+
+      <label for="password">Password <span class="required">*</span></label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" required />
+        <button type="button" id="togglePassword">Show</button>
+      </div>
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="keepSignedIn" checked />
+        <label for="keepSignedIn">Keep me signed in on this device</label>
+      </div>
+      
+      <button type="submit" class="signin-btn">Signup</button>
+    
+
+      <div class="or">or sign up with</div>
+
+      <div class="social-icons">
+         <button><img src="https://img.icons8.com/ios-filled/24/000000/google-logo.png" alt="Google" /></button>
+        <button><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></button>
+      </div>
+
+      <p class="help-links">
+        Need help? <a href="#">Contact Support</a>
+      </p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

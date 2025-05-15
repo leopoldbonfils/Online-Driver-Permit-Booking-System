@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In</title>
+  <link rel="stylesheet" href="signin.css" />
+   <script src="signin.js"></script>
+</head>
+<body>
+  <div class="container">
+    <img/>
+    <h2>Sign in</h2>
+    <p>New online driving permit? <a href="signup.html">Sign up</a></p>
+
+    <form method="POST" action="signin.php">
+      <label for="username">Username <span class="required">*</span></label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password <span class="required">*</span></label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" required />
+        <button type="button" id="togglePassword">Show</button>
+      </div>
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="keepSignedIn" checked />
+        <label for="keepSignedIn">Keep me signed in on this device</label>
+      </div>
+      
+        <button type="submit" class="signin-btn">Sign In</button>
+    
+
+      <div class="or">or sign in with</div>
+
+      <div class="social-icons">
+        <button><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></button>
+        <button><img src="https://img.icons8.com/ios-filled/24/000000/google-logo.png" alt="Google" /></button>
+      </div>
+
+      <p class="help-links">
+        Need to find <a href="#">your username</a> or <a href="#">your password</a>?
+      </p>
+    </form>
+  </div>
+
+ 
+</body>
+</html>

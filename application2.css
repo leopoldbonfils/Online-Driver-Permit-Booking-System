@@ -98,7 +98,7 @@ body {
   
   .btn {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #2980b9;
     color: white;
     border: none;
     border-radius: 4px;
@@ -107,5 +107,5 @@ body {
   }
   
   .btn-back {
-    background-color: #6c757d;
+    background-color: #2980b9;
   }

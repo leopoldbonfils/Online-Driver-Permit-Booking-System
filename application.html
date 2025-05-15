@@ -9,7 +9,7 @@
   <script src="application.js" defer></script>
 </head>
 <body>
-  <main class="main-content">
+  <div class="main-content">
     <div class="header">
       <h1>Online Driver's Permit Booking</h1>
     </div>
@@ -37,27 +37,35 @@
       <h2>Personal Information</h2>
       <div class="form-group">
         <label>National ID</label>
-        <input type="text" placeholder="Enter National ID">
+        <input type="text" placeholder="Enter National ID"><br>
       </div>
       <div class="form-group">
-        <label>First Name</label>
-        <input type="text" placeholder="Enter First Name">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter Full Name"><br>
       </div>
-      <div class="form-group">
-        <label>Middle Name</label>
-        <input type="text" placeholder="Enter Middle Name">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Sex</label>
+          <select required>
+            <option value="" disabled selected hidden>Select sex</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+        <label> Date of Birthday</label>
+        <input type="date" placeholder="Enter date of birthday"><br>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" placeholder="Enter Last Name">
-      </div>
+      
       <div class="form-group">
         <label>Address</label>
-        <input type="text" placeholder="Enter Address">
+        <input type="text" placeholder="Enter Address"><br>
       </div>
       <div class="form-group">
         <label>Phone Number</label>
-        <input type="text" placeholder="Enter Phone Number">
+        <input type="text" placeholder="Enter Phone Number"><br>
       </div>
       <div class="button-group">
         <a href="application1.html" onclick="markStepCompleted(1)">
@@ -65,7 +73,7 @@
         </a>
       </div>
     </div>
-  </main>
+  </div>
 
   <script>
     function markStepCompleted(step) {
