@@ -10,7 +10,7 @@
     <script src="application1.js" defer></script>
 </head>
 <body>
-  <main class="main-content">
+  <div class="main-content">
     <div class="header">
       <h1>Online Driver's Permit Booking</h1>
     </div>
@@ -33,25 +33,26 @@
         <div class="step-label">Payment</div>
       </div>
     </div>
-
+    <form action="place_info.php" method="POST">
     <div class="card">
       <h2>Place Information</h2>
       <div class="form-group">
         <label>Driving categories</label>
-        <select required>
+        <select name="category" required>
           <option value="" disabled selected hidden>Select categories</option>
           <option>A</option>
           <option>B</option>
           <option>B1</option>
           <option>C</option>
+          <option>D</option>
           <option>D1</option>
-          <option>D2</option>
+          <option>E</option>
           <option>F</option>
         </select>
       </div>
       <div class="form-group">
         <label>District</label>
-        <select required>
+        <select name="district" required>
           <option value="" disabled selected hidden>Select district</option>
           <option>Kicukiro</option>
           <option>Gasabo</option>
@@ -62,11 +63,11 @@
       <div class="form-row">
         <div class="form-group">
           <label>Date</label>
-          <input type="date">
+          <input type="date" name="test_date">
         </div>
         <div class="form-group">
           <label>Time</label>
-          <select required>
+          <select name="test_time" required>
             <option value="" disabled selected hidden>Select time</option>
             <option>7:00 AM - 9:00 AM</option>
             <option>9:00 AM - 12:00 AM</option>
@@ -76,7 +77,7 @@
       </div>
       <div class="form-group">
         <label>Place</label>
-          <select required>
+          <select name="test_place" required>
             <option value="" disabled selected hidden>Select Place</option>
             <option>Gisozi center</option>
             <option>Kariyeri center</option>
@@ -92,7 +93,8 @@
         </a>
       </div>
     </div>
-  </main>
+    </form>
+  </div>
 
   <script>
     if (localStorage.getItem("step1Completed") === "true") {

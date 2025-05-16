@@ -33,7 +33,7 @@
     </div>
   
     <h2>Payment Information</h2>
-  
+    <form action="process_payment.php" method="POST">
       <div class="form-group">
         <label for="payment-method">Select Payment Method</label>
         <select id="payment-method" required>
@@ -77,12 +77,12 @@
       </div>
       
       <div class="button-group">
-        <a href="application2.html" >
+        <a href="summary.php" >
           <button class="btn btn-back">Back</button>
         </a>
          <button onclick="submitPayment()">Submit Payment</button>
       </div>
-    </div>
+    </form>
 
   </div>
 </body>
