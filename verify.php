@@ -18,7 +18,7 @@ if (isset($_GET['token'])) {
 
         if ($stmt->affected_rows > 0) {
             // ✅ Redirect to index.php
-            header("Location: index.php");
+            header("Location: signin.html");
             exit();
         } else {
             echo "❌ Something went wrong during verification.";

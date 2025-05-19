@@ -22,11 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $valid = true;
     $errors = [];
 
+    // Validate national ID
     if (!preg_match("/^[0-9]{16}$/", $national_id)) {
         $errors[] = "National ID must be exactly 16 digits.";
         $valid = false;
     }
 
+    // Validate age
     $today = new DateTime();
     $birthDate = new DateTime($dob);
     $age = $today->diff($birthDate)->y;
@@ -35,23 +37,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid = false;
     }
 
+    // Validate phone number
     if (!preg_match("/^[0-9]{10,}$/", $phone)) {
         $errors[] = "Phone number must be at least 10 digits.";
         $valid = false;
     }
 
     if ($valid) {
-        // Check if national_id already exists
-        $check = $conn->prepare("SELECT national_id FROM personal_info WHERE national_id = ?");
-        $check->bind_param("s", $national_id);
+        // Check if national_id or phone already exists
+        $check = $conn->prepare("SELECT * FROM personal_info WHERE national_id = ? OR phone = ?");
+        $check->bind_param("ss", $national_id, $phone);
         $check->execute();
         $check_result = $check->get_result();
 
         if ($check_result->num_rows > 0) {
-            // Already exists, go to next step
-            $_SESSION['national_id'] = $national_id;
-            header("Location: application1.html");
-            exit();
+            $existing = $check_result->fetch_assoc();
+
+            echo "<ul style='color:red;'>";
+
+            if ($existing['national_id'] === $national_id) {
+                echo "<li>National ID already exists. Redirecting...</li>";
+                $_SESSION['national_id'] = $national_id;
+                echo "</ul>";
+                echo "<script>setTimeout(function(){ window.location.href = 'application1.html'; }, 2000);</script>";
+                exit();
+            } elseif ($existing['phone'] === $phone) {
+                echo "<li>Phone number already exists. Please use a different one.</li>";
+                echo "</ul>";
+                echo "<a href='application.html'>Go Back</a>";
+                exit();
+            }
         }
         $check->close();
 
@@ -64,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: application1.html");
             exit();
         } else {
-            echo "Error: " . $stmt->error;
+            echo "<p style='color:red;'>Database Error: " . $stmt->error . "</p>";
         }
 
         $stmt->close();

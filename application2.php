@@ -34,21 +34,32 @@
     <h2>Application Summary</h2>
    
      <div class="section-title">Personal Information</div>
+
     <table>
         <tr><th>National ID</th><td><?= htmlspecialchars($personal['national_id']) ?></td></tr>
+
         <tr><th>Full Name</th><td><?= htmlspecialchars($personal['full_name']) ?></td></tr>
+
         <tr><th>Sex</th><td><?= htmlspecialchars($personal['sex']) ?></td></tr>
+
         <tr><th>Date of Birth</th><td><?= htmlspecialchars($personal['dob']) ?></td></tr>
+
         <tr><th>Address</th><td><?= htmlspecialchars($personal['address']) ?></td></tr>
+
         <tr><th>Phone</th><td><?= htmlspecialchars($personal['phone']) ?></td></tr>
     </table>
 
     <div class="section-title">Place Information</div>
+
     <table>
         <tr><th>Category</th><td><?= htmlspecialchars($place['category']) ?></td></tr>
+
         <tr><th>District</th><td><?= htmlspecialchars($place['district']) ?></td></tr>
+
         <tr><th>Test Date</th><td><?= htmlspecialchars($place['test_date']) ?></td></tr>
+
         <tr><th>Test Time</th><td><?= htmlspecialchars($place['test_time']) ?></td></tr>
+        
         <tr><th>Test Place</th><td><?= htmlspecialchars($place['test_place']) ?></td></tr>
     </table>
     <div class="button-group">

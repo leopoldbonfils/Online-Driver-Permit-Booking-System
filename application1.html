@@ -85,12 +85,8 @@
           </select>
       </div>
       <div class="button-group">
-        <a href="application.html">
-          <button class="btn">Back</button>
-        </a>
-        <a href="application2.html" onclick="markStepCompleted(2)">
-          <button class="btn" onclick="savePlaceInfo()">SAVE & CONTINUE</button>
-        </a>
+        <button type="button" class="btn" id="backBtn">Back</button>
+        <button type="submit" class="btn" name="continue">SAVE & CONTINUE</button>
       </div>
     </div>
     </form>
@@ -106,6 +102,11 @@
     function markStepCompleted(step) {
       localStorage.setItem(`step${step}Completed`, "true");
     }
+    document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("backBtn").addEventListener("click", function () {
+    window.location.href = "application.html";
+  });
+  } );
   </script>
 </body>
 </html>

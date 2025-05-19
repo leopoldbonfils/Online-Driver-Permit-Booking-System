@@ -1,49 +1,24 @@
-if (localStorage.getItem("step3Completed") === "true") {
-  const step3 = document.getElementById("step3");
-  step3.classList.add("completed");
-  step3.classList.remove("active");
-  step3.querySelector(".step-number").innerHTML = '<i class="fas fa-check"></i>';
-}
+document.querySelector('form').addEventListener('submit', function (e) {
+  const method = document.getElementById('method').value;
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
 
-function markStepCompleted(step) {
-  localStorage.setItem(`step${step}Completed`, "true");
-}
+  let valid = true;
+  let message = "";
 
-
-function toggleContactInput() {
-    const method = document.getElementById('method').value;
-    document.getElementById('email-group').style.display = method === 'email' ? 'block' : 'none';
-    document.getElementById('phone-group').style.display = method === 'phone' ? 'block' : 'none';
+  if (!method) {
+    valid = false;
+    message = "Please select how to receive the code.";
+  } else if (method === 'email' && !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    valid = false;
+    message = "Please enter a valid email address.";
+  } else if (method === 'phone' && !phone.match(/^\d{10,}$/)) {
+    valid = false;
+    message = "Please enter a valid phone number (at least 10 digits).";
   }
 
-  let generatedCode = '';
-
-  function sendCode() {
-    const method = document.getElementById('method').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-
-    if ((method === 'email' && !email) || (method === 'phone' && !phone)) {
-      alert('Please enter a valid email or phone number.');
-      return;
-    }
-
-    // Simulate sending a code
-    generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
-    alert(`Your payment code is: ${generatedCode} (sent via ${method})`);
+  if (!valid) {
+    e.preventDefault();
+    alert(message);
   }
-
-  function submitPayment() {
-    const codeInput = document.getElementById('code');
-    const enteredCode = codeInput.value.trim();
-
-    if (!enteredCode || enteredCode !== generatedCode) {
-      codeInput.classList.add('shake');
-      setTimeout(() => codeInput.classList.remove('shake'), 300);
-      alert('Invalid or missing code. Please try again.');
-      return;
-    }
-
-    alert('✅ Payment successful! Application submitted.');
-    localStorage.clear();
-  }
+});

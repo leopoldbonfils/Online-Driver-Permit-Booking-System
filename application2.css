@@ -18,6 +18,7 @@ body {
     text-align: center;
     color: #007bff;
     margin-bottom: 30px;
+    font-size: 28px;
   }
   
   .progress-steps {
@@ -76,20 +77,34 @@ body {
   
  
   
-  .summary-row {
-    display: flex;
-    margin-bottom: 15px;
-  }
-  
-  .summary-label {
-    font-weight: bold;
-    width: 150px;
-  }
-  
-  .summary-value {
-    flex: 1;
-  }
-  
+  table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: #f1faff;
+}
+
   .button-group {
     display: flex;
     justify-content: space-between;
@@ -104,8 +119,37 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
   }
   
   .btn-back {
     background-color: #2980b9;
   }
+
+  .btn:hover {
+  background-color: #0056b3;
+}
+.btn-back:hover {
+  background-color: #545b62;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .progress-steps {
+    flex-direction: column;
+  }
+
+  .step {
+    margin-bottom: 15px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

@@ -2,7 +2,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Include PHPMailer files from your folder
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/Exception.php';
@@ -23,30 +22,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail = new PHPMailer(true);
 
         try {
-            // SMTP configuration
+            // Server settings
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'your_email@gmail.com';        // Replace with your Gmail
-            $mail->Password = 'tnbrqdutvufqduji';     // Use Gmail App Password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port = 587;
-
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'leopordbonfils@gmail.com'; // Your Gmail address
+            $mail->Password   = 'lizgsbaaesjtcehj';    // Gmail App Password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Use STARTTLS
+            $mail->Port       = 587; // TLS port
+            
+            // Enable verbose debug output if needed
+            // $mail->SMTPDebug = 2;
+            
+            // Disable SSL verification (not recommended for production)
             $mail->SMTPOptions = array(
                 'ssl' => array(
-                    'verify_peer'       => true,
-                    'verify_peer_name'  => true,
-                    'allow_self_signed' => false,
-                    'cafile'            => 'C:/xampp/php/extras/ssl/cacert.pem'
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
                 )
             );
 
-            // Sender and recipient
-            $mail->setFrom('your_email@gmail.com', 'Driving Permit System ');
+            // Recipients
+            $mail->setFrom('leopordbonfils@gmail.com', 'Driving_Permit_System');
             $mail->addAddress($email, $username);
 
-            // Email content
-           $mail->isHTML(true);
+            // Content
+            $mail->isHTML(true);
             $mail->Subject = 'Confirm Your Email';
             $mail->Body    = "Hi <b>$username</b>,<br><br>
                 Please click the link below to verify your account:<br>

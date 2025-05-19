@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($category)) $errors[] = "Please select a category.";
     if (empty($district)) $errors[] = "Please select a district.";
     if (empty($test_date)) $errors[] = "Please enter the date.";
+    else if ($test_date < date('Y-m-d')) $errors[] = "You cannot select a date before today.";
     if (empty($test_time)) $errors[] = "Please select the time.";
     if (empty($test_place)) $errors[] = "Please select the place.";
 

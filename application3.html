@@ -34,56 +34,51 @@
   
     <h2>Payment Information</h2>
     <form action="process_payment.php" method="POST">
-      <div class="form-group">
-        <label for="payment-method">Select Payment Method</label>
-        <select id="payment-method" required>
-          <option value="" hidden disabled selected>Select method</option>
-          <option value="momo">Mobile Money</option>
-          <option value="visa">Visa Card</option>
-          <option value="bank">Bank Transfer</option>
-        </select>
-      </div>
-
-      <div class="form-group">
+  <div class="form-group">
+    <label for="payment-method">Select Payment Method</label>
+    <select id="payment-method" name="payment_method" required>
+      <option value="" disabled selected hidden>Select method</option>
+      <option value="momo">Mobile Money</option>
+      <option value="visa">Visa Card</option>
+      <option value="bank">Bank Transfer</option>
+    </select>
+  </div>
+  <div class="form-group">
         <label for="amount">Amount</label>
         <input type="text" id="amount" value="10,000 RWF" disabled>
       </div>
-      <div class="form-group">
-        <label>Receive Payment Code via:</label>
-        <select id="method" onchange="toggleContactInput()">
-          <option value="" selected disabled hidden>Select method</option>
-          <option value="email">Email</option>
-          <option value="phone">Phone</option>
-        </select>
-      </div>
-  
-      <div class="form-group" id="email-group" style="display:none;">
-        <label>Email Address:</label>
-        <input type="email" id="email" placeholder="Enter your email">
-      </div>
-  
-      <div class="form-group" id="phone-group" style="display:none;">
-        <label>Phone Number:</label>
-        <input type="tel" id="phone" placeholder="Enter your phone number">
-      </div>
-  
-      <div class="form-group">
-        <button onclick="sendCode()">Send Payment Code</button>
-      </div>
-  
-      <div class="form-group">
-        <label>Enter Code Sent to You:</label>
-        <input type="text" id="code" placeholder="Enter received code">
-      </div>
-      
-      <div class="button-group">
-        <a href="summary.php" >
-          <button class="btn btn-back">Back</button>
-        </a>
-         <button onclick="submitPayment()">Submit Payment</button>
-      </div>
-    </form>
+
+  <div class="form-group">
+    <label>Receive Payment Code via:</label>
+    <select id="method" name="send_method" onchange="toggleContactInput()" required>
+      <option value="" selected disabled hidden>Select method</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+  </div>
+
+    <div class="form-group" id="email-group" style="display:none;">
+      <label>Email Address:</label>
+      <input type="email" id="email" name="email_value" placeholder="Enter your email">
+    </div>
+
+    <!-- Phone Input -->
+    <div class="form-group" id="phone-group" style="display:none;">
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" name="phone_value" placeholder="Enter your phone number">
+    </div>
+
+ 
+
+  <div class="form-group">
+    <button type="button" class="back-button" onclick="location.assign('Summary.php')">Back</button>
+    <button type="submit">Submit Payment</button>
+  </div>
+</form>
+
 
   </div>
 </body>
 </html>
+
+
