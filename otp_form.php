@@ -1,18 +1,18 @@
 <?php
 session_start();
 
-// Redirect if not coming from signin
+
 if (!isset($_SESSION['temp_user_id'])) {
     header("Location: signin.html");
     exit();
 }
 
-// If OTP verification is successful, complete the login
+
 if (isset($_SESSION['otp_verified']) && $_SESSION['otp_verified'] === true) {
     $_SESSION['user_id'] = $_SESSION['temp_user_id'];
     $_SESSION['username'] = $_SESSION['temp_username'];
     
-    // Clean up temporary session variables
+    
     unset($_SESSION['temp_user_id']);
     unset($_SESSION['temp_username']);
     unset($_SESSION['temp_email']);
@@ -71,14 +71,14 @@ if (isset($_SESSION['otp_verified']) && $_SESSION['otp_verified'] === true) {
         <h2>OTP Verification</h2>
         <p>We've sent a verification code to your email address.</p>
         
-        <!-- Send OTP Form -->
+        
         <form action="otp_verification.php" method="post" id="sendOtpForm">
             <input type="hidden" name="email" value="<?php echo $_SESSION['temp_email']; ?>">
             <input type="hidden" name="send_otp" value="1">
             <button type="submit" class="btn">Send OTP</button>
         </form>
 
-        <!-- Verify OTP Form -->
+    
         <form action="otp_verification.php" method="post" id="verifyOtpForm">
             <input type="hidden" name="email" value="<?php echo $_SESSION['temp_email']; ?>">
             <input type="text" name="otp" class="otp-input" placeholder="Enter OTP" required>

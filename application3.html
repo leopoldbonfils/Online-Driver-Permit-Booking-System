@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="application3.js" defer></script>
   <script>
-    // Function to toggle between email and phone input fields
+    
 function toggleContactInput() {
   const method = document.getElementById('method').value;
   const emailGroup = document.getElementById('email-group');
@@ -24,9 +24,9 @@ function toggleContactInput() {
   }
 }
 
-// Wait for DOM to fully load before attaching listeners
+
 document.addEventListener('DOMContentLoaded', function () {
-  // Attach form validation
+  
   document.querySelector('form').addEventListener('submit', function (e) {
     const method = document.getElementById('method').value;
     const email = document.getElementById('email').value.trim();
@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Attach change event to dropdown to show/hide input fields
+  
   document.getElementById('method').addEventListener('change', toggleContactInput);
 
-  // Call on load in case a value is pre-selected
+
   toggleContactInput();
 });
 
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <input type="email" id="email" name="email_value" placeholder="Enter your email">
     </div>
 
-    <!-- Phone Input -->
+    
     <div class="form-group" id="phone-group" style="display:none;">
       <label>Phone Number:</label>
       <input type="tel" id="phone" name="phone_value" placeholder="Enter your phone number">

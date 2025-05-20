@@ -9,16 +9,16 @@ require 'PHPMailer/src/Exception.php';
 
 $conn = new mysqli("localhost", "root", "Auca@123", "online_driving_permit");
 
-// Function to generate OTP
+
 function generateOTP() {
     return rand(100000, 999999);
 }
 
-// Function to send OTP via email
+
 function sendOTP($email, $otp) {
     $mail = new PHPMailer(true);
     try {
-        // Server settings
+        
         $mail->SMTPDebug = 2;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -28,7 +28,7 @@ function sendOTP($email, $otp) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 587;
         
-        // SSL Configuration
+        
         $mail->SMTPOptions = array(
             'ssl' => array(
                 'verify_peer' => false,
@@ -37,11 +37,11 @@ function sendOTP($email, $otp) {
             )
         );
 
-        // Recipients
+        
         $mail->setFrom('leopordbonfils@gmail.com', 'Driving_Permit_System');
         $mail->addAddress($email);
 
-        // Content
+        
         $mail->isHTML(true);
         $mail->CharSet = 'UTF-8';
         $mail->Subject = 'Your OTP Verification Code';
@@ -67,12 +67,12 @@ function sendOTP($email, $otp) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['send_otp'])) {
-        // Generate and send OTP
+        
         $email = $_POST['email'];
         $otp = generateOTP();
         $expiry = date('Y-m-d H:i:s', strtotime('+10 minutes'));
         
-        // Store OTP in database
+        
         $stmt = $conn->prepare("INSERT INTO otp_codes (email, otp, expiry) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $email, $otp, $expiry);
         
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     if (isset($_POST['verify_otp'])) {
-        // Verify OTP
+        
         $email = $_POST['email'];
         $user_otp = $_POST['otp'];
         
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $stmt->get_result();
         
         if ($result->num_rows > 0) {
-            // Mark OTP as used
+            
             $stmt = $conn->prepare("UPDATE otp_codes SET is_used = 1 WHERE email = ? AND otp = ?");
             $stmt->bind_param("ss", $email, $user_otp);
             $stmt->execute();

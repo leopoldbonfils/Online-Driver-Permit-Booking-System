@@ -3,7 +3,7 @@ function markStepCompleted(step) {
 }
 
 function handleContinue() {
-  // Save personal info
+  
   const data = {
     nationalId: document.querySelector('[name="national_id"]').value,
     fullName: document.querySelector('[name="full_name"]').value,
@@ -15,9 +15,9 @@ function handleContinue() {
 
   localStorage.setItem("personalInfo", JSON.stringify(data));
 
-  // Mark Step 1 as completed
+  
   markStepCompleted(1);
 
-  // Redirect to the next step
+  
   window.location.href = "application1.html";
 }
